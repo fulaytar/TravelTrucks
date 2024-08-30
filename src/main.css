@@ -42,3 +42,7 @@ select {
   background-color: transparent;
   color: inherit;
 }
+body {
+  font-family: 'Inter', sans-serif;
+  color: rgb(247, 247, 247);
+}
