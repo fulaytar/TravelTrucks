@@ -18,7 +18,7 @@ export default function Header() {
             </NavLink>
           </li>
           <li>
-            <NavLink to={'/catalog/'} className={isActive}>
+            <NavLink to={'/catalog'} className={isActive}>
               Catalog
             </NavLink>
           </li>
