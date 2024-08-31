@@ -25,8 +25,14 @@ export const selectFilteredTrucks = createSelector(
   (trucks, filters) => {
     return trucks.filter(truck => {
       return Object.entries(filters).every(([key, value]) => {
-        if (value === undefined || value === null) return true; 
-        return truck[key] === value; 
+        if (key === 'form') {
+          // Split the comma-separated string into an array and check if truck.form matches any of the values
+          const formValues = value ? value.split(',') : [];
+          return formValues.includes(truck[key]);
+        }
+
+        if (value === undefined || value === null) return true;
+        return truck[key] === value;
       });
     });
   }
