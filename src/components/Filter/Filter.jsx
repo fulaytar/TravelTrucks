@@ -3,8 +3,11 @@ import BigIconFilter from '../BigIconFilter/BigIconFilter';
 import Icon from '../Icon/Icon';
 import css from './Filter.module.css';
 import { useForm } from 'react-hook-form';
+import { useDispatch } from 'react-redux';
+import { changeFilter } from '../../redux/filterTrucksSlice';
 
 export default function Filter() {
+  const dispatch = useDispatch();
   const { register, handleSubmit, watch, setValue } = useForm();
 
   const onSubmit = data => {
@@ -20,7 +23,7 @@ export default function Filter() {
       return toast.error('Please select search parameters');
     }
 
-    console.log('Form Data:', filteredData);
+    dispatch(changeFilter(filteredData));
   };
 
   return (
@@ -30,15 +33,15 @@ export default function Filter() {
           <span className={css.iconMap}>
             <Icon idIcon={'map'} customH={20} customW={20} />
           </span>
-          <label htmlFor='city' className={css.labelLocation}>
+          <label htmlFor='location' className={css.labelLocation}>
             Location
           </label>
           <input
             type='text'
             placeholder='City'
-            id='city'
+            id='location'
             className={css.locationInput}
-            {...register('city')}
+            {...register('location')}
           />
         </div>
         <p className={css.textCheckBox}>Filter</p>
@@ -51,13 +54,13 @@ export default function Filter() {
             setValue={setValue}
           />
           <BigIconFilter
-            textFilter={'Automatic'}
+            textFilter={'transmission'}
             nameIcon={'diagram'}
             register={register}
             setValue={setValue}
           />
           <BigIconFilter
-            textFilter={'Kitchen'}
+            textFilter={'kitchen'}
             nameIcon={'cup-hot'}
             register={register}
             setValue={setValue}
@@ -69,32 +72,38 @@ export default function Filter() {
             setValue={setValue}
           />
           <BigIconFilter
-            textFilter={'Bathroom'}
+            textFilter={'bathroom'}
             nameIcon={'bathroom'}
             register={register}
             setValue={setValue}
           />
           <BigIconFilter
-            textFilter={'Gas'}
+            textFilter={'gas'}
             nameIcon={'gas'}
             register={register}
             setValue={setValue}
           />
           <BigIconFilter
-            textFilter={'Refrigerator'}
+            textFilter={'refrigerator'}
             nameIcon={'refrigerator'}
             register={register}
             setValue={setValue}
           />
           <BigIconFilter
-            textFilter={'Microwave'}
+            textFilter={'microwave'}
             nameIcon={'microwave'}
             register={register}
             setValue={setValue}
           />
           <BigIconFilter
-            textFilter={'Radio'}
+            textFilter={'radio'}
             nameIcon={'radio'}
+            register={register}
+            setValue={setValue}
+          />
+          <BigIconFilter
+            textFilter={'water'}
+            nameIcon={'water'}
             register={register}
             setValue={setValue}
           />
@@ -102,22 +111,25 @@ export default function Filter() {
         <h2 className={css.listName}>Vehicle type</h2>
         <ul className={css.checkbox_container}>
           <BigIconFilter
-            textFilter={'Van'}
+            textFilter={'panelTruck'}
             nameIcon={'bi_grid1x2'}
             register={register}
             setValue={setValue}
+            watch={watch}
           />
           <BigIconFilter
-            textFilter={'Fully Integrated'}
+            textFilter={'fullyIntegrated'}
             nameIcon={'grid4x4'}
             register={register}
             setValue={setValue}
+            watch={watch}
           />
           <BigIconFilter
-            textFilter={'Alcove'}
+            textFilter={'alcove'}
             nameIcon={'bi_grid3x3'}
             register={register}
             setValue={setValue}
+            watch={watch}
           />
         </ul>
         <button type='submit' className={css.btn}>

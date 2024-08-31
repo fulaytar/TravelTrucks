@@ -1,19 +1,37 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Icon from '../Icon/Icon';
 import css from './Truck.module.css';
 import IconTrucksFromCard from '../IconTrucksFromCard/IconTrucksFromCard';
 import { Link } from 'react-router-dom';
 import toast from 'react-hot-toast';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  addFavorite,
+  deleteFavorite,
+  selectFavoriteTrucks,
+} from '../../redux/favoriteTrucksSlice';
 
 export default function Truck({ trucks }) {
+  const dispatch = useDispatch();
+  const favorite = useSelector(selectFavoriteTrucks);
+
   const [check, setCheck] = useState(false);
+  useEffect(() => {
+    // Перевірка, чи truck.id є в масиві фаворитів
+    setCheck(favorite.some(fav => fav.id === trucks.id));
+  }, [favorite, trucks.id]);
+
   const isCheck = () => {
     !check
-      ? toast.success('successfully added')
-      : toast.success('successfully deleted');
+      ? toast.success('Successfully added to favorites')
+      : toast.success('Successfully removed from favorites');
+
+    !check
+      ? dispatch(addFavorite(trucks))
+      : dispatch(deleteFavorite({ id: trucks.id }));
     setCheck(!check);
   };
-  console.log(trucks);
+
   return (
     <li className={css.container}>
       <img
@@ -40,7 +58,7 @@ export default function Truck({ trucks }) {
           <Icon customH={16} customW={16} idIcon={'star'} />
           <span
             className={css.reviews}
-          >{`${trucks.rating}(${trucks.reviews.length} Reviews)`}</span>
+          >{`${trucks.rating} (${trucks.reviews.length} Reviews)`}</span>
           <Icon idIcon={'map'} customH={16} customW={16} />
           <span className={css.location}>{trucks.location}</span>
         </p>

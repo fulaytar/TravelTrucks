@@ -8,13 +8,31 @@ export default function BigIconFilter({
   nameIcon,
   register,
   setValue,
+  watch,
 }) {
   const [isActive, setIsActive] = useState(false);
 
   const handleCheckBoxToggle = () => {
     const newValue = !isActive;
     setIsActive(newValue);
-    setValue(textFilter, newValue);
+
+    if (['fullyIntegrated', 'alcove', 'panelTruck'].includes(textFilter)) {
+      // Отримуємо поточне значення поля 'form'
+      const currentFormValue = watch('form') || '';
+
+      // Оновлюємо поле 'form' з новим значенням
+      const updatedFormValue = newValue
+        ? `${currentFormValue ? `${currentFormValue},` : ''}${textFilter}`
+        : currentFormValue
+            .split(',')
+            .filter(item => item !== textFilter)
+            .join(',');
+
+      setValue('form', updatedFormValue);
+    } else {
+      // Оновлюємо звичайне поле
+      setValue(textFilter, newValue);
+    }
   };
 
   return (

@@ -1,21 +1,32 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import css from './ListTrucks.module.css';
-import { getAllCampers } from '../../travel-api';
+import { fetchAllTrucks } from '../../redux/AsyncThunk';
+import { selectAllTrucks } from '../../redux/trucksSlice';
+import { selectFilteredTrucks } from '../../redux/filterTrucksSlice';
 import Truck from '../Truck/Truck';
 
 export default function ListTruck() {
-  const [trucks, setTrucks] = useState([]);
-  useEffect(() => {
-    const fetchData = async () => {
-      const data = await getAllCampers();
-      setTrucks(data);
-    };
+  const dispatch = useDispatch();
+  const allTrucks = useSelector(selectAllTrucks);
+  const filteredTrucks = useSelector(selectFilteredTrucks);
+  console.log(filteredTrucks, '345543345');
 
-    fetchData();
-  }, []);
+  useEffect(() => {
+    dispatch(fetchAllTrucks());
+  }, [dispatch]);
+
+  // Перевірте, чи filteredTrucks є масивом
+  const trucksToDisplay =
+    filteredTrucks.length > 0
+      ? filteredTrucks
+      : Array.isArray(allTrucks)
+      ? allTrucks
+      : [];
+
   return (
     <ul className={css.list}>
-      {trucks.map(item => (
+      {trucksToDisplay.map(item => (
         <Truck trucks={item} key={item.id} />
       ))}
     </ul>
