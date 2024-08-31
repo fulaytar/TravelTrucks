@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchAllTrucks, fetchTruckById } from './AsyncThunk';
+import { fetchAllTrucks, fetchTruckById } from './asyncThunk';
 
 const slice = createSlice({
   name: 'trucks',
@@ -39,6 +39,5 @@ const slice = createSlice({
 
 export const selectSelectedTruck = state => state.trucks.selectedTruck;
 export const selectAllTrucks = state => state.trucks.trucks;
-export const selectIsLoading=state=>state.trucks.loading
 
 export default slice.reducer;
