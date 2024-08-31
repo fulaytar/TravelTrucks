@@ -7,7 +7,7 @@ export default function Icon({ idIcon, customW, customH, customColor }) {
       width={customW ? customW : 32}
       height={customH ? customH : 32}
     >
-      <use href={`/public/symbol-defs.svg#${idIcon}`}></use>
+      <use href={`/symbol-defs.svg#${idIcon}`}></use>
     </svg>
   );
 }
