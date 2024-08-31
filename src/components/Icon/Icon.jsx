@@ -1,9 +1,21 @@
+import clsx from 'clsx';
 import css from './Icon.module.css';
 
-export default function Icon({ idIcon, customW, customH, customColor }) {
+export default function Icon({
+  idIcon,
+  customW,
+  customH,
+  customColor,
+  activeHover,
+  setCheck,
+}) {
   return (
     <svg
-      className={css.icons}
+      className={clsx(
+        css.icons,
+        activeHover && css.activeHover,
+        setCheck && css.setCheck
+      )}
       width={customW ? customW : 32}
       height={customH ? customH : 32}
     >

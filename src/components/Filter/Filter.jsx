@@ -10,12 +10,11 @@ export default function Filter() {
     const filteredData = Object.fromEntries(
       Object.entries(data).filter(
         ([_, value]) =>
-          !(typeof value === 'boolean' && !value) && // Не включати `false` значення
-          !(typeof value === 'string' && value.trim() === '') // Не включати пусті рядки
+          !(typeof value === 'boolean' && !value) &&
+          !(typeof value === 'string' && value.trim() === '')
       )
     );
 
-    // Перевірка на порожній об'єкт
     if (Object.keys(filteredData).length === 0) {
       return;
     }
@@ -70,7 +69,31 @@ export default function Filter() {
           />
           <BigIconFilter
             textFilter={'Bathroom'}
-            nameIcon={'water'}
+            nameIcon={'bathroom'}
+            register={register}
+            setValue={setValue}
+          />
+          <BigIconFilter
+            textFilter={'Gas'}
+            nameIcon={'gas'}
+            register={register}
+            setValue={setValue}
+          />
+          <BigIconFilter
+            textFilter={'Refrigerator'}
+            nameIcon={'refrigerator'}
+            register={register}
+            setValue={setValue}
+          />
+          <BigIconFilter
+            textFilter={'Microwave'}
+            nameIcon={'microwave'}
+            register={register}
+            setValue={setValue}
+          />
+          <BigIconFilter
+            textFilter={'Radio'}
+            nameIcon={'radio'}
             register={register}
             setValue={setValue}
           />

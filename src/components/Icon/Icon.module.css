@@ -1,3 +1,9 @@
 .icons {
   fill: #101828;
 }
+.activeHover:hover {
+  fill: red;
+}
+.setCheck {
+  fill: red;
+}

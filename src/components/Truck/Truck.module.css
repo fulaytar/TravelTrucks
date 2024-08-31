@@ -1,0 +1,113 @@
+.container {
+  display: flex;
+  position: relative;
+  padding: 24px;
+  gap: 24px;
+  border: 1px solid rgba(16, 24, 40, 0.2);
+  border-radius: 20px;
+
+  background: rgb(255, 255, 255);
+}
+.details {
+  width: 100%;
+}
+.h2 {
+  color: rgb(16, 24, 40);
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.33;
+  letter-spacing: 0;
+  margin-bottom: 8px;
+}
+.price {
+  color: rgb(16, 24, 40);
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: 0;
+}
+.image {
+  border-radius: 10px;
+  object-fit: cover;
+  object-position: center center;
+}
+.priceInfo {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  position: absolute;
+  top: 24px;
+  right: 24px;
+}
+.btn {
+  background: transparent;
+  border: none;
+}
+.btn:hover {
+  fill: red;
+}
+.p {
+  display: flex;
+  align-items: center;
+  color: rgb(16, 24, 40);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0%;
+  margin-bottom: 24px;
+}
+.reviews {
+  margin-left: 4px;
+  margin-right: 16px;
+}
+.location {
+  margin-left: 4px;
+}
+.descr {
+  width: 500px;
+  color: rgb(71, 84, 103);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0;
+  white-space: nowrap; /* Запобігає переносу тексту на новий рядок */
+  overflow: hidden; /* Приховує текст, що виходить за межі блоку */
+  text-overflow: ellipsis; /* Додає три крапки в кінці обрізаного тексту */
+  margin-bottom: 24px;
+}
+.listIcon {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+.openTrucks {
+  display: block;
+  border-radius: 200px;
+  background: rgb(228, 72, 72);
+  padding: 16px 60px;
+  color: rgb(255, 255, 255);
+  font-size: 16px;
+  font-weight: 500;
+  width: fit-content;
+  line-height: 1.5;
+  letter-spacing: -0.05em;
+  box-shadow: 0 0 0 0 rgb(224, 87, 87);
+}
+.openTrucks:hover {
+  animation: pulse 1500ms infinite;
+  background: rgb(213, 57, 57);
+}
+@keyframes pulse {
+  0% {
+    transform: scale(0.95);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 20px rgba(5, 255, 138, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(0, 246, 131, 0);
+  }
+}

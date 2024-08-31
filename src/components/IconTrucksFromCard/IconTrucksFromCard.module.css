@@ -1,0 +1,13 @@
+.li {
+  border-radius: 100px;
+  background: rgb(242, 244, 247);
+  padding: 12px 18px 12px 18px;
+  display: flex;
+  gap: 8px;
+  color: rgb(16, 24, 40);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+  max-width: min-content;
+  letter-spacing: 0;
+}
