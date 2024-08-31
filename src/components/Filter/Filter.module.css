@@ -1,0 +1,101 @@
+.checkbox_container {
+  display: flex;
+  position: relative;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding-top: 48px;
+  margin-bottom: 32px;
+}
+.contentBlock {
+  width: 100%;
+  max-width: 360px;
+}
+
+.checkbox_container::after {
+  content: '';
+  width: 100%;
+  position: absolute;
+  top: 24px;
+  height: 1px;
+  background: #dadde1;
+}
+
+.locationInput {
+  display: block;
+  border-radius: 12px;
+  background: #f7f7f7;
+  padding: 18px 20px;
+  color: rgb(16, 24, 40);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.25;
+  letter-spacing: 0;
+  outline: none;
+  border: transparent;
+  padding-left: 48px;
+  margin-top: 8px;
+  width: 100%;
+  max-width: 360px;
+}
+.containerLocation {
+  position: relative;
+  color: #6c717b;
+  margin-bottom: 40px;
+  display: block;
+}
+
+.iconMap {
+  position: absolute;
+  top: 43px;
+  left: 20px;
+}
+.textCheckBox {
+  color: rgb(71, 84, 103);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.25;
+  letter-spacing: 0;
+  margin-bottom: 32px;
+}
+.listName {
+  color: rgb(16, 24, 40);
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: 0;
+}
+.checkbox_container:last-of-type {
+  margin-bottom: 40px;
+}
+.btn {
+  border-radius: 200px;
+  background: rgb(228, 72, 72);
+  padding: 16px 60px;
+  /* Button */
+  color: rgb(255, 255, 255);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: -0.05em;
+  box-shadow: 0 0 0 0 rgb(224, 87, 87);
+  transition: background 300ms ease-in;
+  border: none;
+}
+
+.btn:hover {
+  animation: pulse 1500ms infinite;
+  background: rgb(213, 57, 57);
+}
+@keyframes pulse {
+  0% {
+    transform: scale(0.95);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 20px rgba(5, 255, 138, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(0, 246, 131, 0);
+  }
+}

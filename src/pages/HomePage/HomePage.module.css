@@ -67,39 +67,6 @@
   }
 }
 
-/* 
-320
-     h1
-    font-size: 24px;
-    font-weight: 600;
-    line-height: 1.5;
-    letter-spacing: 0;
-    text-align: left;
-
-    p
-        font-size: 15px;
-    font-weight: 600;
-    line-height: 1.33;
-    letter-spacing: 0;
-    text-align: left;
-    margin-bottom: 20px;
-
-    btn
-    border: transparent;
-    padding: 8px 32px
-    border-radius: 200px;
-    background: rgb(228, 72, 72);
-    color: rgb(255, 255, 255);
-    font-family: Inter;
-    font-size: 14px;
-
-
-    768
-      h1
-    font-size: 32px;
-
-*/
-
 @media screen and (min-width: 768px) {
   .h1 {
     font-size: 32px;
