@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import css from './ListTrucks.module.css';
-import { fetchAllTrucks } from '../../redux/AsyncThunk';
+import { fetchAllTrucks } from '../../redux/asyncThunk';
 import { selectFilteredTrucks } from '../../redux/filterTrucksSlice';
 import Truck from '../Truck/Truck';
 
