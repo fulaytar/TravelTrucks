@@ -22,7 +22,7 @@
   white-space: nowrap; /* Запобігає переносу тексту на новий рядок */
   overflow: hidden; /* Приховує текст, що виходить за межі блоку */
   text-overflow: ellipsis; /* Додає три крапки в кінці обрізаного тексту */
-  width: 400px;
+  width: 280px;
 }
 .price {
   color: rgb(16, 24, 40);
