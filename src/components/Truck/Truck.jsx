@@ -16,8 +16,8 @@ export default function Truck({ trucks }) {
   const favorite = useSelector(selectFavoriteTrucks);
 
   const [check, setCheck] = useState(false);
+
   useEffect(() => {
-    // Перевірка, чи truck.id є в масиві фаворитів
     setCheck(favorite.some(fav => fav.id === trucks.id));
   }, [favorite, trucks.id]);
 

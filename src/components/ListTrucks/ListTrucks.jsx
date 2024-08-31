@@ -16,7 +16,7 @@ export default function ListTruck() {
     dispatch(fetchAllTrucks());
   }, [dispatch]);
 
-  // Перевірте, чи filteredTrucks є масивом
+    
   const trucksToDisplay =
     filteredTrucks.length > 0
       ? filteredTrucks

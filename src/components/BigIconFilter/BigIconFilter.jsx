@@ -17,10 +17,8 @@ export default function BigIconFilter({
     setIsActive(newValue);
 
     if (['fullyIntegrated', 'alcove', 'panelTruck'].includes(textFilter)) {
-      // Отримуємо поточне значення поля 'form'
       const currentFormValue = watch('form') || '';
 
-      // Оновлюємо поле 'form' з новим значенням
       const updatedFormValue = newValue
         ? `${currentFormValue ? `${currentFormValue},` : ''}${textFilter}`
         : currentFormValue
@@ -30,7 +28,6 @@ export default function BigIconFilter({
 
       setValue('form', updatedFormValue);
     } else {
-      // Оновлюємо звичайне поле
       setValue(textFilter, newValue);
     }
   };

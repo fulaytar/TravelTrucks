@@ -23,12 +23,10 @@ export const selectFilters = state => state.filters.filters;
 export const selectFilteredTrucks = createSelector(
   [selectAllTrucks, selectFilters],
   (trucks, filters) => {
-    console.log(trucks, filters, 5435345345345);
     return trucks.filter(truck => {
-      // Перевірка кожного фільтра
       return Object.entries(filters).every(([key, value]) => {
-        if (!value) return true; // якщо значення фільтра false, пропускаємо його
-        return truck[key]; // перевіряємо, чи є у вантажівки відповідна властивість
+        if (value === undefined || value === null) return true; 
+        return truck[key] === value; 
       });
     });
   }

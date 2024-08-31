@@ -4,7 +4,8 @@ import Icon from '../Icon/Icon';
 import css from './Filter.module.css';
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
-import { changeFilter } from '../../redux/filterTrucksSlice';
+import { changeFilter, resetFilters } from '../../redux/filterTrucksSlice';
+import { useEffect } from 'react';
 
 export default function Filter() {
   const dispatch = useDispatch();
@@ -20,11 +21,16 @@ export default function Filter() {
     );
 
     if (Object.keys(filteredData).length === 0) {
-      return toast.error('Please select search parameters');
+      return dispatch(resetFilters());
     }
 
     dispatch(changeFilter(filteredData));
   };
+
+  useEffect(() => {
+    // Скидаємо фільтри при завантаженні компонента
+    dispatch(resetFilters());
+  }, [dispatch]);
 
   return (
     <div className={css.contentBlock}>
