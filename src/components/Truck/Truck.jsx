@@ -3,10 +3,14 @@ import Icon from '../Icon/Icon';
 import css from './Truck.module.css';
 import IconTrucksFromCard from '../IconTrucksFromCard/IconTrucksFromCard';
 import { Link } from 'react-router-dom';
+import toast from 'react-hot-toast';
 
 export default function Truck({ trucks }) {
   const [check, setCheck] = useState(false);
   const isCheck = () => {
+    !check
+      ? toast.success('successfully added')
+      : toast.success('successfully deleted');
     setCheck(!check);
   };
   console.log(trucks);

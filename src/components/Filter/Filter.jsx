@@ -1,3 +1,4 @@
+import toast from 'react-hot-toast';
 import BigIconFilter from '../BigIconFilter/BigIconFilter';
 import Icon from '../Icon/Icon';
 import css from './Filter.module.css';
@@ -16,7 +17,7 @@ export default function Filter() {
     );
 
     if (Object.keys(filteredData).length === 0) {
-      return;
+      return toast.error('Please select search parameters');
     }
 
     console.log('Form Data:', filteredData);

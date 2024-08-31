@@ -12,12 +12,17 @@
   width: 100%;
 }
 .h2 {
+  display: block;
   color: rgb(16, 24, 40);
   font-size: 24px;
   font-weight: 600;
   line-height: 1.33;
   letter-spacing: 0;
   margin-bottom: 8px;
+  white-space: nowrap; /* Запобігає переносу тексту на новий рядок */
+  overflow: hidden; /* Приховує текст, що виходить за межі блоку */
+  text-overflow: ellipsis; /* Додає три крапки в кінці обрізаного тексту */
+  width: 400px;
 }
 .price {
   color: rgb(16, 24, 40);
