@@ -22,6 +22,11 @@ export default function Header() {
               Catalog
             </NavLink>
           </li>
+          <li>
+            <NavLink to={'/favorite'} className={isActive}>
+              Favorite
+            </NavLink>
+          </li>
         </ul>
       </nav>
     </header>

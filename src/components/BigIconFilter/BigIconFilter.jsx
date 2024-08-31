@@ -16,6 +16,9 @@ export default function BigIconFilter({
     const newValue = !isActive;
     setIsActive(newValue);
 
+    if (textFilter === 'automatic') {
+      return setValue('transmission', 'automatic');
+    }
     if (['fullyIntegrated', 'alcove', 'panelTruck'].includes(textFilter)) {
       const currentFormValue = watch('form') || '';
 

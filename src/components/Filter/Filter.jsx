@@ -60,7 +60,7 @@ export default function Filter() {
             setValue={setValue}
           />
           <BigIconFilter
-            textFilter={'transmission'}
+            textFilter={'automatic'}
             nameIcon={'diagram'}
             register={register}
             setValue={setValue}
