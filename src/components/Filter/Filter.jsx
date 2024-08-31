@@ -7,7 +7,20 @@ export default function Filter() {
   const { register, handleSubmit, watch, setValue } = useForm();
 
   const onSubmit = data => {
-    console.log('Form Data:', data);
+    const filteredData = Object.fromEntries(
+      Object.entries(data).filter(
+        ([_, value]) =>
+          !(typeof value === 'boolean' && !value) && // Не включати `false` значення
+          !(typeof value === 'string' && value.trim() === '') // Не включати пусті рядки
+      )
+    );
+
+    // Перевірка на порожній об'єкт
+    if (Object.keys(filteredData).length === 0) {
+      return;
+    }
+
+    console.log('Form Data:', filteredData);
   };
 
   return (
