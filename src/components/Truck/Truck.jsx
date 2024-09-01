@@ -10,6 +10,8 @@ import {
   deleteFavorite,
   selectFavoriteTrucks,
 } from '../../redux/favoriteTrucksSlice';
+import Loader from '../Loader/Loader';
+import { fetchTruckById } from '../../redux/asyncThunk';
 
 export default function Truck({ trucks }) {
   const dispatch = useDispatch();
@@ -18,57 +20,74 @@ export default function Truck({ trucks }) {
   const [check, setCheck] = useState(false);
 
   useEffect(() => {
-    setCheck(favorite.some(fav => fav.id === trucks.id));
-  }, [favorite, trucks.id]);
+    if (trucks && trucks.id) {
+      setCheck(favorite.some(fav => fav.id === trucks.id));
+    }
+  }, [favorite, trucks]);
 
   const isCheck = () => {
-    !check
+    const newCheck = !check;
+
+    newCheck
       ? toast.success('Successfully added to favorites')
       : toast.success('Successfully removed from favorites');
 
-    !check
+    newCheck
       ? dispatch(addFavorite(trucks))
-      : dispatch(deleteFavorite({ id: trucks.id }));
-    setCheck(!check);
+      : dispatch(deleteFavorite({ id: trucks?.id }));
+
+    setCheck(newCheck);
   };
+
+  if (!trucks) {
+    return <Loader />;
+  }
 
   return (
     <li className={css.container}>
-      <img
-        className={css.image}
-        src={trucks.gallery[0].thumb}
-        alt={trucks.name}
-        width={292}
-        height={320}
-      />
+      {trucks?.gallery?.[0]?.thumb && (
+        <img
+          className={css.image}
+          src={trucks.gallery[0].thumb}
+          alt={trucks.name || 'Truck'}
+          width={292}
+          height={320}
+        />
+      )}
       <div className={css.details}>
-        <h2 className={css.h2}>{trucks.name}</h2>
-        <div className={css.priceInfo}>
-          <span className={css.price}>{`€${trucks.price}.00`}</span>
-          <button
-            type='button'
-            className={css.btn}
-            onClick={isCheck}
-            title='add to favorite'
-          >
-            <Icon
-              idIcon={'love'}
-              customH={24}
-              customW={24}
-              activeHover={true}
-              setCheck={check}
-            />
-          </button>
-        </div>
-        <p className={css.p}>
-          <Icon customH={16} customW={16} idIcon={'star'} />
-          <span
-            className={css.reviews}
-          >{`${trucks.rating} (${trucks.reviews.length} Reviews)`}</span>
-          <Icon idIcon={'map'} customH={16} customW={16} />
-          <span className={css.location}>{trucks.location}</span>
+        <h2 className={css.h2}>{trucks?.name || 'Unnamed Truck'}</h2>
+        {trucks?.price && (
+          <div className={css.priceInfo}>
+            <span className={css.price}>{`€${trucks.price}.00`}</span>
+            <button
+              type='button'
+              className={css.btn}
+              onClick={isCheck}
+              title='add to favorite'
+            >
+              <Icon
+                idIcon={'love'}
+                customH={24}
+                customW={24}
+                activeHover={true}
+                setCheck={check}
+              />
+            </button>
+          </div>
+        )}
+        {(trucks?.rating || trucks?.reviews?.length) && (
+          <p className={css.p}>
+            <Icon customH={16} customW={16} idIcon={'star'} />
+            <span className={css.reviews}>
+              {`${trucks.rating} (${trucks.reviews.length} Reviews)`}
+            </span>
+            <Icon idIcon={'map'} customH={16} customW={16} />
+            <span className={css.location}>{trucks.location}</span>
+          </p>
+        )}
+        <p className={css.descr}>
+          {trucks?.description || 'No description available'}
         </p>
-        <p className={css.descr}>{trucks.description}</p>
         <ul className={css.listIcon}>
           {trucks.AC && <IconTrucksFromCard textIcon={'AC'} idIcon={'wind'} />}
           {trucks.bathroom && (
@@ -95,7 +114,11 @@ export default function Truck({ trucks }) {
             <IconTrucksFromCard textIcon={'Water'} idIcon={'water'} />
           )}
         </ul>
-        <Link className={css.openTrucks} to={`/catalog/${trucks.id}`}>
+        <Link
+          className={css.openTrucks}
+          to={`/catalog/${trucks.id}`}
+          onClick={() => dispatch(fetchTruckById(trucks.id))}
+        >
           Show more
         </Link>
       </div>
