@@ -8,7 +8,6 @@ import Truck from '../Truck/Truck';
 export default function ListTruck() {
   const dispatch = useDispatch();
   const filteredTrucks = useSelector(selectFilteredTrucks);
-  console.log(filteredTrucks, '345543345');
 
   useEffect(() => {
     dispatch(fetchAllTrucks());
