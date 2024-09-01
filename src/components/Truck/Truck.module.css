@@ -24,13 +24,7 @@
   text-overflow: ellipsis; /* Додає три крапки в кінці обрізаного тексту */
   width: 280px;
 }
-.price {
-  color: rgb(16, 24, 40);
-  font-size: 24px;
-  font-weight: 600;
-  line-height: 1.25;
-  letter-spacing: 0;
-}
+
 .image {
   border-radius: 10px;
   object-fit: cover;
@@ -79,6 +73,13 @@
   overflow: hidden; /* Приховує текст, що виходить за межі блоку */
   text-overflow: ellipsis; /* Додає три крапки в кінці обрізаного тексту */
   margin-bottom: 24px;
+}
+.price {
+  color: rgb(16, 24, 40);
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: 0;
 }
 .listIcon {
   display: flex;

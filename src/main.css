@@ -46,3 +46,6 @@ body {
   font-family: 'Inter', sans-serif;
   color: rgb(247, 247, 247);
 }
+.react-datepicker-wrapper {
+  width: 100%;
+}

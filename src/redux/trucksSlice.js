@@ -39,5 +39,9 @@ const slice = createSlice({
 
 export const selectSelectedTruck = state => state.trucks.selectedTruck;
 export const selectAllTrucks = state => state.trucks.trucks;
+export const selectIsLoading = state => state.trucks.loading;
+export const selectIsError = state => state.trucks.error;
 
 export default slice.reducer;
+
+/* page=3&limit=5 */

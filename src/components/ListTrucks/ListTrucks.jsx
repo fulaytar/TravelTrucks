@@ -4,10 +4,13 @@ import css from './ListTrucks.module.css';
 import { fetchAllTrucks } from '../../redux/asyncThunk';
 import { selectFilteredTrucks } from '../../redux/filterTrucksSlice';
 import Truck from '../Truck/Truck';
+import { selectIsError } from '../../redux/trucksSlice';
+import Error from '../Error/Error';
 
 export default function ListTruck() {
   const dispatch = useDispatch();
   const filteredTrucks = useSelector(selectFilteredTrucks);
+  const isError = useSelector(selectIsError);
 
   useEffect(() => {
     dispatch(fetchAllTrucks());
@@ -15,7 +18,9 @@ export default function ListTruck() {
 
   return (
     <ul className={css.list}>
-      {filteredTrucks.length > 0 ? (
+      {isError ? (
+        <Error />
+      ) : filteredTrucks.length > 0 ? (
         filteredTrucks.map(item => <Truck trucks={item} key={item.id} />)
       ) : (
         <p className={css.p}>Sorry, not found</p>

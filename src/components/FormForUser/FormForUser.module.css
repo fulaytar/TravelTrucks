@@ -1,0 +1,94 @@
+/* form */
+.formDetails {
+  width: 50%;
+  padding: 44px;
+}
+.h3_form {
+  color: rgb(16, 24, 40);
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: 0;
+  margin-bottom: 8px;
+}
+.p__form {
+  color: rgb(71, 84, 103);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0;
+  margin-bottom: 24px;
+}
+.inputForm,
+.textarea {
+  width: 100%;
+  border-radius: 12px;
+  /* Inputs */
+  background: rgb(247, 247, 247);
+  padding: 18px;
+  color: rgb(108, 113, 123);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: 0;
+  outline: none;
+  border: transparent;
+  transition: all 0.3s ease;
+}
+.textarea {
+  resize: none;
+  height: 118px;
+  margin-bottom: 24px;
+}
+.inputForm:hover,
+.inputForm:focus,
+.textarea:hover,
+.textarea:focus {
+  color: rgb(16, 24, 40);
+  border-color: #dc3545;
+  box-shadow: 0 0 8px rgba(220, 53, 69, 0.5);
+}
+
+.formByUser {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.formBtn {
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 200px;
+  background: rgb(228, 72, 72);
+  padding: 16px 60px;
+  color: rgb(255, 255, 255);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: -0.05em;
+  box-shadow: 0 0 0 0 rgb(224, 87, 87);
+  transition: background 300ms ease-in;
+  border: none;
+}
+
+.formBtn:hover {
+  animation: pulse 1500ms infinite;
+  background: rgb(213, 57, 57);
+}
+@keyframes pulse {
+  0% {
+    transform: scale(0.95);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 20px rgba(5, 255, 138, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(0, 246, 131, 0);
+  }
+}
+.error {
+  color: red;
+}

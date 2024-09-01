@@ -1,0 +1,102 @@
+.h2 {
+  color: rgb(16, 24, 40);
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: 0;
+}
+section {
+  padding: 48px 64px;
+}
+.p {
+  display: flex;
+  align-items: center;
+  color: rgb(16, 24, 40);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0%;
+  margin-bottom: 16px;
+}
+.reviews {
+  margin-left: 4px;
+  margin-right: 16px;
+}
+.location {
+  margin-left: 4px;
+}
+.descr {
+  width: 400px;
+  color: rgb(71, 84, 103);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0;
+  white-space: nowrap; /* Запобігає переносу тексту на новий рядок */
+  overflow: hidden; /* Приховує текст, що виходить за межі блоку */
+  text-overflow: ellipsis; /* Додає три крапки в кінці обрізаного тексту */
+  margin-bottom: 24px;
+}
+.price {
+  color: rgb(16, 24, 40);
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: 0;
+  margin-bottom: 28px;
+}
+.listImage {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  gap: 48px;
+  margin-bottom: 28px;
+}
+.img {
+  object-fit: cover;
+}
+.des {
+  color: rgb(71, 84, 103);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0;
+  margin-bottom: 60px;
+}
+.listDetails {
+  display: flex;
+  gap: 40px;
+  position: relative;
+  margin-bottom: 68px;
+}
+.listDetails::after {
+  content: '';
+  width: 100%;
+  border-bottom: 1px solid rgba(16, 24, 40, 0.2);
+  position: absolute;
+  top: 48px;
+}
+.linkDetailsActive {
+  color: rgb(16, 24, 40);
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: 0;
+}
+
+.linkDetailsActive::before {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 5px;
+  background: rgb(228, 72, 72);
+  position: absolute;
+  top: 43px;
+}
+.linkDetail {
+  color: rgb(16, 24, 40);
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: 0;
+}
