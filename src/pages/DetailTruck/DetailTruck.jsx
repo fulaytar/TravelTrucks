@@ -24,7 +24,10 @@ export default function Trucks() {
     clsx(isActive ? css.linkDetailsActive : css.linkDetail);
 
   useEffect(() => {
-    dispatch(fetchTruckById(id));
+    const func = async id => {
+      dispatch(fetchTruckById(id));
+    };
+    func(id);
   }, [id, dispatch]);
 
   return (

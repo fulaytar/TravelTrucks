@@ -4,6 +4,7 @@ import Layout from '../Layout/Layout';
 import MiniLoader from '../MiniLoader/MiniLoader'; // Assuming you have a MiniLoader component
 import Trucks from '../../pages/DetailTruck/DetailTruck';
 import Features from '../Features/Features';
+import Reviews from '../Reviews/Reviews';
 
 // Lazy load the pages
 const HomePage = lazy(() => import('../../pages/HomePage/HomePage'));
@@ -22,7 +23,7 @@ export default function App() {
             <Route path='/catalog' element={<CatalogPage />} />
             <Route path='/catalog/:id' element={<Trucks />}>
               <Route path='features' element={<Features />} />
-              <Route path='reviews' element={5} />
+              <Route path='reviews' element={<Reviews />} />
             </Route>
             <Route path='/favorite' element={<Favorite />} />
           </Routes>

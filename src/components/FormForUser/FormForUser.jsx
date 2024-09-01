@@ -4,34 +4,34 @@ import toast from 'react-hot-toast';
 import DatePicker from 'react-datepicker';
 
 export default function FormForUser() {
-      const {
-        control,
-        handleSubmit,
-        register,
-        setValue,
-        reset,
-        formState: { errors },
-      } = useForm({
-        defaultValues: {
-          date: null,
-        },
-      });
+  const {
+    control,
+    handleSubmit,
+    register,
+    setValue,
+    reset,
+    formState: { errors },
+  } = useForm({
+    defaultValues: {
+      date: null,
+    },
+  });
 
-      const onSubmit = data => {
-        toast.success('Form submitted successfully!');
-        console.log(data);
-        reset();
-      };
+  const onSubmit = data => {
+    toast.success('Form submitted successfully!');
+    console.log(data);
+    reset();
+  };
 
-      const handleDateChange = date => {
-        const today = new Date();
-        if (date < today) {
-          toast.error('Cannot select a past date!');
-          setValue('date', null); // Reset date if invalid
-        } else {
-          setValue('date', date); // Set valid date
-        }
-      };
+  const handleDateChange = date => {
+    const today = new Date();
+    if (date < today) {
+      toast.error('Cannot select a past date!');
+      setValue('date', null); // Reset date if invalid
+    } else {
+      setValue('date', date); // Set valid date
+    }
+  };
   return (
     <div className={css.formDetails}>
       <h3 className={css.h3_form}>Book your campervan now</h3>

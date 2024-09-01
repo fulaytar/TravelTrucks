@@ -13,7 +13,10 @@ export default function ListTruck() {
   const isError = useSelector(selectIsError);
 
   useEffect(() => {
-    dispatch(fetchAllTrucks());
+    const func = async () => {
+      await dispatch(fetchAllTrucks());
+    };
+    func();
   }, [dispatch]);
 
   return (
