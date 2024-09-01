@@ -44,7 +44,7 @@ export default function Truck({ trucks }) {
         <h2 className={css.h2}>{trucks.name}</h2>
         <div className={css.priceInfo}>
           <span className={css.price}>{`€${trucks.price}.00`}</span>
-          <button type='button' className={css.btn} onClick={isCheck}>
+          <button type='button' className={css.btn} onClick={isCheck} title='add to favorite'>
             <Icon
               idIcon={'love'}
               customH={24}
