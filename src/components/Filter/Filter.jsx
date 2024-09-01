@@ -138,7 +138,7 @@ export default function Filter() {
             watch={watch}
           />
         </ul>
-        <button type='submit' className={css.btn}>
+        <button type='submit' className={css.btn} title='search'>
           Search
         </button>
       </form>
